@@ -1,0 +1,498 @@
+import { Game, FriendActivity, CustomList, UserProfile, JournalEntry, Milestone, GameCollection } from '../types';
+
+export const INITIAL_GAMES: Game[] = [
+  {
+    id: 'game-1',
+    title: 'Elden Ring',
+    slug: 'elden-ring',
+    coverUrl: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1245620/library_600x900_2x.jpg',
+    backdropUrl: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1245620/library_hero.jpg',
+    releaseDate: '2022-02-25',
+    releaseYear: 2022,
+    developer: 'FromSoftware Inc.',
+    publisher: 'Bandai Namco Entertainment',
+    genres: ['Action RPG', 'Open World', 'Souls-like', 'Dark Fantasy'],
+    platforms: ['PC', 'PlayStation 5', 'PlayStation 4', 'Xbox Series X/S', 'Xbox One'],
+    synopsis: 'Rise, Tarnished, and be guided by grace to brandish the power of the Elden Ring and become an Elden Lord in the Lands Between.',
+    officialDescription: 'THE NEW FANTASY ACTION RPG. Rise, Tarnished, and be guided by grace to brandish the power of the Elden Ring and become an Elden Lord in the Lands Between. A vast world where open fields with a variety of situations and huge dungeons with complex and three-dimensional designs are seamlessly connected. As you explore, the joy of discovering unknown and overwhelming threats await you, leading to a high sense of accomplishment. In addition to customizing the appearance of your character, you can freely combine the weapons, armor, and magic that you equip. You can develop your character according to your play style, such as increasing your muscle strength to become a strong warrior, or mastering magic. A multilayered story told in fragments. An epic drama in which the various thoughts of the characters intersect in the Lands Between.',
+    averageRating: 4.8,
+    totalRatings: 18450,
+    metacritic: 96,
+    playtimeHours: 59,
+    hltb: {
+      mainStory: 59,
+      mainExtra: 102,
+      completionist: 134,
+      allStyles: 107
+    },
+    featuredTag: 'Game of the Year',
+    trailerYoutubeId: 'E3Huy2cdih0'
+  },
+  {
+    id: 'game-2',
+    title: "Baldur's Gate 3",
+    slug: 'baldurs-gate-3',
+    coverUrl: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1086940/library_600x900_2x.jpg',
+    backdropUrl: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1086940/library_hero.jpg',
+    releaseDate: '2023-08-03',
+    releaseYear: 2023,
+    developer: 'Larian Studios',
+    publisher: 'Larian Studios',
+    genres: ['CRPG', 'Turn-Based', 'Fantasy', 'Story Rich'],
+    platforms: ['PC', 'PlayStation 5', 'Xbox Series X/S', 'macOS'],
+    synopsis: 'Gather your party and return to the Forgotten Realms in a tale of fellowship and betrayal, sacrifice and survival, and the lure of absolute power.',
+    officialDescription: "Baldur's Gate 3 is a story-rich, party-based RPG set in the universe of Dungeons & Dragons, where your choices shape a tale of fellowship and betrayal, survival and sacrifice, and the lure of absolute power. Mysterious abilities are awakening inside you, drawn from a mind flayer parasite planted in your brain. Resist, and turn darkness against itself. Or embrace corruption, and become ultimate evil. Choose from a wide selection of D&D races and classes, or play as an origin character with a hand-crafted background. Adventure, loot, battle and romance as you journey through the Forgotten Realms and beyond.",
+    averageRating: 4.9,
+    totalRatings: 16820,
+    metacritic: 96,
+    playtimeHours: 68,
+    hltb: {
+      mainStory: 68,
+      mainExtra: 110,
+      completionist: 157,
+      allStyles: 106
+    },
+    featuredTag: 'Masterpiece',
+    trailerYoutubeId: '1T22wNvoNiU'
+  },
+  {
+    id: 'game-3',
+    title: 'Cyberpunk 2077: Phantom Liberty',
+    slug: 'cyberpunk-2077-phantom-liberty',
+    coverUrl: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1091500/library_600x900_2x.jpg',
+    backdropUrl: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1091500/library_hero.jpg',
+    releaseDate: '2023-09-26',
+    releaseYear: 2023,
+    developer: 'CD PROJEKT RED',
+    publisher: 'CD PROJEKT RED',
+    genres: ['Action RPG', 'Cyberpunk', 'Open World', 'Sci-Fi'],
+    platforms: ['PC', 'PlayStation 5', 'Xbox Series X/S'],
+    synopsis: 'Phantom Liberty is a spy-thriller adventure for Cyberpunk 2077. Return as cyber-enhanced mercenary V and embark on a high-stakes mission of espionage and survival.',
+    officialDescription: 'Cyberpunk 2077 is an open-world, action-adventure RPG set in the megalopolis of Night City, where you play as a cyberpunk mercenary wrapped up in a do-or-die fight for survival. Phantom Liberty is a spy-thriller expansion for Cyberpunk 2077. When the orbital shuttle of the President of the New United States of America is shot down over the deadliest district of Night City, there is only one person who can save her — you. As mercenary V, enter a tangled web of espionage and political intrigue, untangling a story that binds the highest echelons of power with the brutal world of black-market mercenaries.',
+    averageRating: 4.7,
+    totalRatings: 14200,
+    metacritic: 89,
+    playtimeHours: 25,
+    hltb: {
+      mainStory: 25,
+      mainExtra: 60,
+      completionist: 104,
+      allStyles: 50
+    },
+    featuredTag: 'Trending',
+    trailerYoutubeId: 'kfX9n_G0N2Y'
+  },
+  {
+    id: 'game-4',
+    title: 'The Witcher 3: Wild Hunt',
+    slug: 'the-witcher-3-wild-hunt',
+    coverUrl: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/library_600x900_2x.jpg',
+    backdropUrl: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/library_hero.jpg',
+    releaseDate: '2015-05-18',
+    releaseYear: 2015,
+    developer: 'CD PROJEKT RED',
+    publisher: 'CD PROJEKT RED',
+    genres: ['Action RPG', 'Open World', 'Story Rich', 'Fantasy'],
+    platforms: ['PC', 'PlayStation 5', 'PlayStation 4', 'Xbox Series X/S', 'Nintendo Switch'],
+    synopsis: 'You are Geralt of Rivia, mercenary monster slayer. Before you stands a war-torn, monster-infested continent you can explore at will.',
+    officialDescription: 'You are Geralt of Rivia, mercenary monster slayer. Before you stands a war-torn, monster-infested continent you can explore at will. Your current contract? Tracking down Ciri — the Child of Prophecy, a living weapon that can alter the shape of the world. Built for endless adventure, the massive open world of The Witcher sets new standards in size, depth and complexity. Traverse a fantastical open world: explore forgotten ruins, caves and shipwrecks, trade with merchants and dwarven smiths in cities, and hunt across open plains, mountains and seas.',
+    averageRating: 4.8,
+    totalRatings: 21900,
+    metacritic: 93,
+    playtimeHours: 52,
+    hltb: {
+      mainStory: 51.5,
+      mainExtra: 103,
+      completionist: 173,
+      allStyles: 104
+    },
+    featuredTag: 'All-Time Classic',
+    trailerYoutubeId: 'XHrskkHf958'
+  },
+  {
+    id: 'game-5',
+    title: 'Red Dead Redemption 2',
+    slug: 'red-dead-redemption-2',
+    coverUrl: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/library_600x900_2x.jpg',
+    backdropUrl: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/library_hero.jpg',
+    releaseDate: '2018-10-26',
+    releaseYear: 2018,
+    developer: 'Rockstar Games',
+    publisher: 'Rockstar Games',
+    genres: ['Action-Adventure', 'Open World', 'Western', 'Story Rich'],
+    platforms: ['PC', 'PlayStation 4', 'Xbox One'],
+    synopsis: 'America, 1899. Arthur Morgan and the Van der Linde gang are outlaws on the run. With federal agents and the best bounty hunters in the nation massing on their heels.',
+    officialDescription: 'America, 1899. The end of the Wild West era has begun. After a robbery goes badly wrong in the western town of Blackwater, Arthur Morgan and the Van der Linde gang are forced to flee. With federal agents and the best bounty hunters in the nation massing on their heels, the gang must rob, steal and fight their way across the rugged heartland of America in order to survive. As deepening internal divisions threaten to tear the gang apart, Arthur must make a choice between his own ideals and loyalty to the gang who raised him.',
+    averageRating: 4.9,
+    totalRatings: 19800,
+    metacritic: 97,
+    playtimeHours: 50,
+    hltb: {
+      mainStory: 50,
+      mainExtra: 82,
+      completionist: 180,
+      allStyles: 86
+    },
+    featuredTag: 'Top Rated',
+    trailerYoutubeId: 'eaW0tYpxyp0'
+  },
+  {
+    id: 'game-6',
+    title: 'Hades',
+    slug: 'hades',
+    coverUrl: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1145350/library_600x900_2x.jpg',
+    backdropUrl: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1145350/library_hero.jpg',
+    releaseDate: '2020-09-17',
+    releaseYear: 2020,
+    developer: 'Supergiant Games',
+    publisher: 'Supergiant Games',
+    genres: ['Roguelike', 'Action', 'Hack and Slash', 'Mythology'],
+    platforms: ['PC', 'PlayStation 5', 'PlayStation 4', 'Nintendo Switch', 'Xbox Series X/S', 'iOS'],
+    synopsis: 'Defy the god of the dead as you hack and slash out of the Underworld in this rogue-like dungeon crawler from the creators of Bastion and Transistor.',
+    officialDescription: "Defy the god of the dead as you hack and slash out of the Underworld in this rogue-like dungeon crawler from the creators of Bastion and Transistor. As the immortal Prince of the Underworld, you'll wield the powers and mythic weapons of Olympus to break free from the clutches of the god of the dead himself, while growing stronger and unraveling more of the story with each unique escape attempt. The Olympians have your back! Meet Zeus, Athena, Poseidon, and many more, and choose from their dozens of powerful Boons that enhance your abilities.",
+    averageRating: 4.8,
+    totalRatings: 15300,
+    metacritic: 93,
+    playtimeHours: 23,
+    hltb: {
+      mainStory: 22.5,
+      mainExtra: 48,
+      completionist: 98,
+      allStyles: 49
+    },
+    featuredTag: 'Community Favorite',
+    trailerYoutubeId: '91t0ha9x0AE'
+  },
+  {
+    id: 'game-7',
+    title: 'God of War',
+    slug: 'god-of-war',
+    coverUrl: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1593500/library_600x900_2x.jpg',
+    backdropUrl: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1593500/library_hero.jpg',
+    releaseDate: '2022-01-14',
+    releaseYear: 2022,
+    developer: 'Santa Monica Studio',
+    publisher: 'PlayStation Publishing LLC',
+    genres: ['Action-Adventure', 'Mythology', 'Cinematic', 'Story Rich'],
+    platforms: ['PC', 'PlayStation 5', 'PlayStation 4'],
+    synopsis: 'His vengeance against the Gods of Olympus years behind him, Kratos now lives as a man in the realm of Norse Gods and monsters.',
+    officialDescription: 'His vengeance against the Gods of Olympus years behind him, Kratos now lives as a man in the realm of Norse Gods and monsters. It is in this harsh, unforgiving world that he must fight to survive… and teach his son to do the same. As mentor and protector to Atreus, a son determined to earn his respect, he is forced to deal with and control the rage that has long defined him while out in a very dangerous world with his son. From the marble and columns of ornate Olympus to the gritty forests, mountains and caves of pre-Viking Norse lore, this is a distinctly new realm with its own pantheon of creatures, monsters and gods.',
+    averageRating: 4.8,
+    totalRatings: 13900,
+    metacritic: 94,
+    playtimeHours: 21,
+    hltb: {
+      mainStory: 20.5,
+      mainExtra: 32.5,
+      completionist: 51.5,
+      allStyles: 32.5
+    },
+    featuredTag: 'Essential',
+    trailerYoutubeId: 'K0u_kAWLJOA'
+  },
+  {
+    id: 'game-8',
+    title: 'Hollow Knight',
+    slug: 'hollow-knight',
+    coverUrl: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/367520/library_600x900_2x.jpg',
+    backdropUrl: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/367520/library_hero.jpg',
+    releaseDate: '2017-02-24',
+    releaseYear: 2017,
+    developer: 'Team Cherry',
+    publisher: 'Team Cherry',
+    genres: ['Metroidvania', 'Souls-like', '2D Platformer', 'Atmospheric'],
+    platforms: ['PC', 'Nintendo Switch', 'PlayStation 4', 'Xbox One'],
+    synopsis: 'Forge your own path in Hollow Knight! An epic action adventure through a vast ruined kingdom of insects and heroes.',
+    officialDescription: 'Forge your own path in Hollow Knight! An epic action adventure through a vast ruined kingdom of insects and heroes. Explore twisting caverns, battle tainted creatures and befriend bizarre bugs, all in a classic, hand-drawn 2D style. The world of Hallownest is expansive and open. Choose which paths you take, which enemies you face and find your own way forward. Evolve with powerful new skills and abilities! Gain spells, strength and speed. Blast foes with fiery Soul and uncover ancient mysteries buried deep beneath the earth.',
+    averageRating: 4.8,
+    totalRatings: 17200,
+    metacritic: 90,
+    playtimeHours: 27,
+    hltb: {
+      mainStory: 27,
+      mainExtra: 41.5,
+      completionist: 62.5,
+      allStyles: 41.5
+    },
+    featuredTag: 'Indie Icon',
+    trailerYoutubeId: 'UAO2urG23S4'
+  },
+  {
+    id: 'game-9',
+    title: 'Persona 5 Royal',
+    slug: 'persona-5-royal',
+    coverUrl: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1687950/library_600x900_2x.jpg',
+    backdropUrl: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1687950/library_hero.jpg',
+    releaseDate: '2022-10-21',
+    releaseYear: 2022,
+    developer: 'ATLUS',
+    publisher: 'SEGA',
+    genres: ['JRPG', 'Anime', 'Turn-Based', 'Social Sim'],
+    platforms: ['PC', 'PlayStation 5', 'Nintendo Switch', 'Xbox Series X/S'],
+    synopsis: 'Don the mask of Joker and join the Phantom Thieves of Hearts as they break the chains of modern society and stage grand heists.',
+    officialDescription: 'Don the mask of Joker and join the Phantom Thieves of Hearts. Break free from the chains of modern society and stage grand heists to infiltrate the minds of the corrupt and make them change their ways! Persona 5 Royal is packed with new characters, confidants, story depth, new locations to explore, and a new grappling hook mechanic for stealthy access to new areas. With a new semester at Shujin Academy, get ready to strengthen your abilities in the metaverse and in your daily life.',
+    averageRating: 4.8,
+    totalRatings: 9800,
+    metacritic: 95,
+    playtimeHours: 100,
+    hltb: {
+      mainStory: 100,
+      mainExtra: 124,
+      completionist: 143,
+      allStyles: 114
+    },
+    featuredTag: 'JRPG Masterpiece',
+    trailerYoutubeId: 'SKpSpvFCZRw'
+  },
+  {
+    id: 'game-10',
+    title: 'Resident Evil 4',
+    slug: 'resident-evil-4',
+    coverUrl: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2050650/library_600x900_2x.jpg',
+    backdropUrl: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2050650/library_hero.jpg',
+    releaseDate: '2023-03-24',
+    releaseYear: 2023,
+    developer: 'CAPCOM Co., Ltd.',
+    publisher: 'CAPCOM Co., Ltd.',
+    genres: ['Survival Horror', 'Action', 'Zombies', 'Third-Person Shooter'],
+    platforms: ['PC', 'PlayStation 5', 'PlayStation 4', 'Xbox Series X/S'],
+    synopsis: 'Survival is only the beginning. Six years have passed since the biological disaster in Raccoon City. Leon S. Kennedy tracks the president’s kidnapped daughter to a secluded European village.',
+    officialDescription: "Survival is only the beginning. Six years have passed since the biological disaster in Raccoon City. Agent Leon S. Kennedy, one of the survivors of the incident, has been sent to rescue the president's kidnapped daughter. He tracks her to a secluded European village, where there is something terribly wrong with the locals. And the curtain rises on this story of daring rescue and grueling horror where life and death, terror and catharsis intersect. Featuring modernized gameplay, a reimagined storyline, and vividly detailed graphics.",
+    averageRating: 4.8,
+    totalRatings: 11400,
+    metacritic: 93,
+    playtimeHours: 16,
+    hltb: {
+      mainStory: 16,
+      mainExtra: 20.5,
+      completionist: 31,
+      allStyles: 21
+    },
+    featuredTag: 'Action Horror',
+    trailerYoutubeId: 'j5Ic2z3_xp0'
+  },
+  {
+    id: 'game-11',
+    title: 'Disco Elysium: The Final Cut',
+    slug: 'disco-elysium-the-final-cut',
+    coverUrl: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/632470/library_600x900_2x.jpg',
+    backdropUrl: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/632470/library_hero.jpg',
+    releaseDate: '2021-03-30',
+    releaseYear: 2021,
+    developer: 'ZA/UM',
+    publisher: 'ZA/UM',
+    genres: ['Isometric RPG', 'Narrative', 'Detective', 'Dark Comedy'],
+    platforms: ['PC', 'PlayStation 5', 'Nintendo Switch', 'Xbox Series X/S'],
+    synopsis: 'Disco Elysium is a groundbreaking open world role playing game. You’re a detective with a unique skill system at your disposal and a whole city block to carve your path across.',
+    officialDescription: "Disco Elysium - The Final Cut is the definitive edition of the groundbreaking role playing game. You're a detective with a unique skill system at your disposal and a whole city block to carve your path across. Interrogate unforgettable characters, crack murders, or take bribes. Become a hero or an absolute disaster of a human being. Countless tools for role playing: 24 wildly different skills to mix and match. Develop a personal style with over 80 clothing items. Wield 14 tools from guns to flashlights and a boombox, or pour yourself a cocktail of 6 different psychoactive substances.",
+    averageRating: 4.9,
+    totalRatings: 8600,
+    metacritic: 97,
+    playtimeHours: 22,
+    hltb: {
+      mainStory: 22,
+      mainExtra: 33.5,
+      completionist: 45,
+      allStyles: 32
+    },
+    featuredTag: 'Narrative Peak',
+    trailerYoutubeId: 'nk_K5DM0UTk'
+  },
+  {
+    id: 'game-12',
+    title: 'The Legend of Zelda: Tears of the Kingdom',
+    slug: 'the-legend-of-zelda-tears-of-the-kingdom',
+    coverUrl: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&auto=format&fit=crop&q=80',
+    backdropUrl: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=1600&auto=format&fit=crop&q=80',
+    releaseDate: '2023-05-12',
+    releaseYear: 2023,
+    developer: 'Nintendo EPD',
+    publisher: 'Nintendo',
+    genres: ['Action-Adventure', 'Open World', 'Physics Sandbox', 'Fantasy'],
+    platforms: ['Nintendo Switch'],
+    synopsis: 'An epic adventure across the land and skies of Hyrule awaits. In this sequel to Breath of the Wild, you decide your own path through the sprawling landscapes.',
+    officialDescription: 'An epic adventure across the land and skies of Hyrule awaits in The Legend of Zelda: Tears of the Kingdom for Nintendo Switch. In this sequel to The Legend of Zelda: Breath of the Wild, you will decide your own path through the sprawling landscapes of Hyrule and the mysterious islands floating in the vast skies above. Harness the power of Link’s new abilities to fight back against the malevolent forces that threaten the kingdom, fusing weapons, building ultrahand vehicles, and exploring ancient sky islands and the depths below.',
+    averageRating: 4.8,
+    totalRatings: 16100,
+    metacritic: 96,
+    playtimeHours: 59,
+    hltb: {
+      mainStory: 59,
+      mainExtra: 111,
+      completionist: 234,
+      allStyles: 110
+    },
+    featuredTag: 'Nintendo Classic',
+    trailerYoutubeId: 'uHGShqcAHlQ'
+  }
+];
+
+export const INITIAL_FRIENDS_ACTIVITY: FriendActivity[] = [
+  {
+    id: 'act-1',
+    userId: 'u-elena',
+    userName: 'Elena Rostova',
+    userAvatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80',
+    userHandle: 'elena_r',
+    action: 'reviewed',
+    gameId: 'game-1',
+    gameTitle: 'Elden Ring',
+    gameCoverUrl: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1245620/library_600x900_2x.jpg',
+    releaseYear: 2022,
+    rating: 5.0,
+    isLiked: true,
+    reviewText: 'Over 120 hours in and finally felled the final boss. One of the most rewarding worlds ever crafted in modern gaming history.',
+    timestamp: '2 hours ago',
+    likesCount: 24,
+    hasUserLiked: false,
+    comments: []
+  },
+  {
+    id: 'act-2',
+    userId: 'u-marcus',
+    userName: 'Marcus Vance',
+    userAvatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=80',
+    userHandle: 'marcus_v',
+    action: 'logged',
+    gameId: 'game-2',
+    gameTitle: "Baldur's Gate 3",
+    gameCoverUrl: 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1086940/library_600x900_2x.jpg',
+    releaseYear: 2023,
+    rating: 4.5,
+    isLiked: true,
+    timestamp: '6 hours ago',
+    likesCount: 18,
+    hasUserLiked: true,
+    comments: []
+  }
+];
+
+export const INITIAL_USER_LISTS: CustomList[] = [
+  {
+    id: 'list-all-time-greats',
+    title: 'Top 10 All-Time Video Game Masterpieces',
+    description: 'Games that redefined narrative, atmosphere, mechanics, and art direction.',
+    isRanked: true,
+    isPublic: true,
+    gameIds: ['game-1', 'game-2', 'game-5', 'game-4', 'game-6'],
+    likesCount: 42,
+    createdAt: '2024-01-15T12:00:00.000Z',
+    updatedAt: '2024-03-01T15:30:00.000Z'
+  },
+  {
+    id: 'list-backlog-2024',
+    title: 'Essential Backlog & Priority Plays',
+    description: 'Must-play titles scheduled for completion this year.',
+    isRanked: false,
+    isPublic: true,
+    gameIds: ['game-3', 'game-7', 'game-8', 'game-10'],
+    likesCount: 15,
+    createdAt: '2024-02-10T10:00:00.000Z',
+    updatedAt: '2024-02-20T11:00:00.000Z'
+  }
+];
+
+export const INITIAL_USER_PROFILE: UserProfile = {
+  id: 'me',
+  username: 'gamerboxd_user',
+  handle: 'gamerboxd_user',
+  displayName: 'GamerBoxd Player',
+  avatarUrl: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=200&auto=format&fit=crop&q=80',
+  bio: 'Track and log games, discover new titles, and review your gaming journey.',
+  headerUrl: '',
+  location: '',
+  website: '',
+  favoriteGameIds: ['game-1', 'game-2', 'game-5', 'game-6'],
+  following: [],
+  followers: [],
+  joinedDate: 'Joined Recently'
+};
+
+export const INITIAL_USER_JOURNAL: JournalEntry[] = [];
+
+export const INITIAL_MILESTONES: Milestone[] = [
+  {
+    id: 'm-1',
+    title: 'First Game Logged',
+    subtitle: 'Log your first completed or played game in your diary',
+    type: 'count',
+    icon: 'Trophy',
+    achievedAt: '',
+    targetCount: 1,
+    currentCount: 0,
+    isUnlocked: false
+  },
+  {
+    id: 'm-2',
+    title: '10 Games Logged',
+    subtitle: 'Track 10 unique game entries across any platform',
+    type: 'count',
+    icon: 'Flame',
+    achievedAt: '',
+    targetCount: 10,
+    currentCount: 0,
+    isUnlocked: false
+  },
+  {
+    id: 'm-3',
+    title: 'Master Reviewer',
+    subtitle: 'Pen thoughtful reviews with star ratings for 5 games',
+    type: 'rating',
+    icon: 'Feather',
+    achievedAt: '',
+    targetCount: 5,
+    currentCount: 0,
+    isUnlocked: false
+  },
+  {
+    id: 'm-4',
+    title: 'Curator',
+    subtitle: 'Create your first themed custom gaming list',
+    type: 'count',
+    icon: 'Zap',
+    achievedAt: '',
+    targetCount: 1,
+    currentCount: 0,
+    isUnlocked: false
+  }
+];
+
+export const INITIAL_COLLECTIONS: GameCollection[] = [
+  {
+    id: 'col-finished',
+    name: 'Finished',
+    description: 'Games conquered from opening cinematic to final credits roll. Beaten, celebrated, and archived into the hall of fame.',
+    coverArtUrl: 'https://images.unsplash.com/photo-1579373903781-fd5c0c30c4cd?w=800&auto=format&fit=crop&q=80',
+    themeColor: '#00e054',
+    icon: 'CheckCircle2',
+    gameIds: ['game-1', 'game-4', 'game-6', 'game-11'],
+    isDefault: true,
+    createdAt: '2024-01-15T12:00:00.000Z',
+    updatedAt: '2024-03-01T14:30:00.000Z'
+  },
+  {
+    id: 'col-backlog',
+    name: 'Backlog',
+    description: 'The ever-expanding library of masterpieces queued up and waiting their turn on the active priority queue.',
+    coverArtUrl: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&auto=format&fit=crop&q=80',
+    themeColor: '#40bcf4',
+    icon: 'Clock',
+    gameIds: ['game-3', 'game-7', 'game-8', 'game-10'],
+    isDefault: true,
+    createdAt: '2024-01-20T10:00:00.000Z',
+    updatedAt: '2024-02-28T09:15:00.000Z'
+  },
+  {
+    id: 'col-favorites',
+    name: 'All-Time Favorites',
+    description: 'The defining titles and transcendent gaming experiences that shaped my taste, memories, and journey forever.',
+    coverArtUrl: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=800&auto=format&fit=crop&q=80',
+    themeColor: '#ff8000',
+    icon: 'Heart',
+    gameIds: ['game-1', 'game-2', 'game-5', 'game-9'],
+    isDefault: true,
+    createdAt: '2024-01-10T08:00:00.000Z',
+    updatedAt: '2024-03-05T18:00:00.000Z'
+  }
+];
+

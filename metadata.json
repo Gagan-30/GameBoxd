@@ -1,0 +1,6 @@
+{
+  "name": "Letterboxd for Games",
+  "description": "A Letterboxd clone for video games featuring star ratings, game diary, custom themed collections, lists, social feed, expanded online game catalog, and statistics.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

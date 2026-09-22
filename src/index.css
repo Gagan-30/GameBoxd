@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+/* Force native dark color-scheme in browsers */
+:root, html {
+  color-scheme: dark;
+}
+
+/* Global Embedded Scrollbar System */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #2c3440 transparent;
+}
+
+/* Chrome, Edge, Safari, and Opera WebKit scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Floating embedded pill thumb */
+::-webkit-scrollbar-thumb {
+  background-color: #2c3440;
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #48596b;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: #00e054;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* Custom embedded scrollbar for inner scroll containers */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #2c3440 transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #2c3440;
+  border-radius: 9999px;
+  border: 1px solid transparent;
+  background-clip: padding-box;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #48596b;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:active {
+  background-color: #00e054;
+}
+
+/* Utility to hide scrollbars while allowing smooth scrolling */
+.no-scrollbar::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
